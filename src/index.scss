@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css?family=Bilbo|Calligraffitti|Caveat:400,700|Cousine:400,700|Nanum+Gothic+Coding:400,700&display=swap');
+
+// Color Palette
+$colors: (
+  primary: #fff,
+  secondary: #000,
+  accent: #ad1721,
+  accent-two: #cdc5b4,
+  accent-three: #d1d5de
+);
+
+// Color Function
+@function color($color-name) {
+  @return map-get($colors, $color-name)
+};
+
+// Font Stack
+$fonts: (
+  bilbo: #{'Bilbo', cursive},
+  caveat: #{'Caveat', cursive},
+  cousine: #{'Cousine', monospace}
+);
+
+// Font Function
+@function font($font-name) {
+  @return map-get($fonts, $font-name)
+};
+
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.4rem;
+}
+
+a {
+  text-decoration: none;
+}
+
+p {
+  margin: 0.75rem 0;
+}
+
+// Utilities
+.mx-1 { margin: 0 1rem; }
+.mx-2 { margin: 0 2rem; }
+.mx-3 { margin: 0 3rem; }
+
+.my-1 { margin: 1rem 0; }
+.my-2 { margin: 2rem 0; }
+.my-3 { margin: 3rem 0; }
+
+.mb-1 { margin-bottom: 1rem; }
+.mb-2 { margin-bottom: 2rem; }
+.mb-3 { margin-bottom: 3rem; }
+
+.mr-1 { margin-right: 1rem; }
+.mr-2 { margin-right: 2rem; }
+.mr-3 { margin-right: 3rem; }
+
+.p-1 { padding: 1rem; }
+.p-2 { padding: 2rem; }
+.p-3 { padding: 3rem; }
+
+.px-1 { padding: 0 1rem; }
+.px-2 { padding: 0 2rem; }
+.px-3 { padding: 0 3rem; }
+
+.py-1 { padding: 1rem 0; }
+.py-2 { padding: 2rem 0; }
+.py-3 { padding: 3rem 0 }
+
+.pt-1 { padding-top: 1rem; }
+.pt-2 { padding-top: 2rem; }
+.pt-3 { padding-top: 3rem; }
+
+.pb-1 { padding-bottom: 1rem; }
+.pb-2 { padding-bottom: 2rem; }
+.pb-3 { padding-bottom: 3rem; }
+
+.l-heading {
+  font-size: 3rem;
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+}
+
+.m-heading {
+  font-size: 2rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+}
+
+.s-heading {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+}
+
+.lead {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.s-lead {
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-item {
+  background: color(accent);
+  width: 100%;
+  padding: 0.5rem;
+  margin: 0.75rem;
+  border: none;
+}
+
+.is-link {
+  color: color(accent);
+  text-decoration: underline;
+}
+
+.is-subhead {
+  font-family: font(bilbo);
+  color: color(secondary);
+  letter-spacing: 0.3rem;
+}
+
+.is-block {
+  display: block;
+}
+
+.is-uppercase {
+  text-transform: uppercase;
+}
+
+.btn {
+  display: inline-block;
+  font-weight: 700;
+  color: color(primary);
+  background: color(accent);
+  padding: 0.5rem 2rem;
+  border: none;
+  border-radius: 3px;
+}
+
+.btn:hover {
+  color: color(accent-two);
+  background: color(secondary);
+}
+
+.is-bold {
+  font-weight: 700;
+}
+
+.is-bolder {
+  font-weight: 900;
+}
+
+.is-left {
+  text-align: left;
+}
+
+.is-center {
+  text-align: center;
+}
+
+.is-right {
+  text-align: right;
+}

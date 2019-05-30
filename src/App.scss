@@ -1,0 +1,399 @@
+@import url('https://fonts.googleapis.com/css?family=Bilbo|Caveat:400,700|Nanum+Gothic+Coding:400,700&display=swap');
+
+// Color Palette
+$colors: (
+  primary: #fff,
+  secondary: #000,
+  secondary-light: #333,
+  accent: #ad1721,
+  accent-two: #cdc5b4,
+  accent-three: #d1d5de
+);
+
+// Color Function
+@function color($color-name) {
+  @return map-get($colors, $color-name)
+};
+
+// Font Stack
+$fonts: (
+  bilbo: #{'Bilbo', cursive},
+  caveat: #{'Caveat', cursive},
+  cousine: #{'Cousine', monospace}
+);
+
+// Font Function
+@function font($font-name) {
+  @return map-get($fonts, $font-name)
+};
+
+
+// Media Breakpoints
+$tablet: 840px;
+
+// Media Queries using Mixins
+@mixin tablet {
+  @media (min-width: #{$tablet}) {
+    @content;
+  }
+}
+
+// Main Header
+#main-header {
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1504544750208-dc0358e63f7f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80') no-repeat center center/cover;
+
+  .header-nav {
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+
+      h1 a {
+        font-family: font(bilbo);
+        font-size: 2.5rem;
+        color: color(primary);
+      }
+
+      .burger-menu {
+
+        label {
+          font-size: 1.5rem;
+          color: color(primary);
+          cursor: pointer;
+        }
+
+        #toggle:checked + ul {
+          width: 100%;
+          display: block;
+          background-color: color(accent-two);
+          line-height: 3rem;
+        }
+
+        input {
+          display: none;
+        }
+
+        ul {
+          list-style: none;
+          width: 20vw;
+          margin-right: 1rem;
+          display: none;
+
+          li {
+            width: 100%;
+            border-bottom: 1px solid color(secondary-light);
+
+            a {
+              color: color(primary);
+            }
+          }
+
+          li:last-child {
+            border: none;
+          }
+        }
+      }
+    }    
+  }
+
+  .header-content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: color(primary);
+
+    h2 {
+      font-family: font(cousine);
+    }
+
+    p {
+      font-family: font(caveat);
+    }
+  }
+
+}
+
+// Menu - Specials
+#menu {
+
+  .specials {
+  
+    h3 {
+      font-family: font(bilbo);
+      color: color(accent);
+      border-bottom: 2px solid color(secondary);
+    }
+  
+    .grid {
+      display: grid;
+      margin: 0 3rem;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(10, 25vh);
+      grid-gap: 1rem;
+  
+      figure .special {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+  
+      .item-1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
+  
+      .item-2 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 5;
+      }
+  
+      .item-3 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 5;
+        grid-row-end: 7;
+      }
+  
+      .item-4 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 7;
+        grid-row-end: 9;
+      }
+  
+      .item-5 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 9;
+        grid-row-end: 11;
+      }
+    }
+  }
+
+  .menu {
+
+    > h3 {
+      font-family: font(bilbo);
+      color: color(accent);
+      border-bottom: 2px solid color(secondary);
+    }
+
+    .grid { 
+      display: grid;
+      margin: 0 4rem;
+      grid-template-columns: repeat(2, 1.2fr);
+      grid-template-rows: repeat(18, 5vh);
+      grid-gap: 1rem;
+
+      h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: color(accent);
+        text-transform: uppercase;
+      }
+
+      h4 {
+        font-size: 1rem;
+        font-weight: 300;
+      }
+
+      ul {
+        list-style: none;
+
+        li {
+          font-weight: 300;
+        }
+      }
+
+      .food-items {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
+
+      .item-1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 6;
+
+        .detail {
+          font-size: 0.8rem;
+        }
+      }
+
+      .item-2 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 6;
+        grid-row-end: 9;
+
+        .food-items {
+          display: flex;
+          justify-content: center;
+        }
+      }
+
+      .item-3 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 9;
+        grid-row-end: 12;
+      }
+
+      .item-4 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 12;
+        grid-row-end: 15;
+      }
+
+      .item-5 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 15;
+        grid-row-end: 19;
+
+        p {
+          font-size: 1rem;
+          font-weight: 200;
+
+        }
+
+        .food-names li {
+          font-weight: 700;
+          padding-top: 0.5rem;
+        }
+
+        .food-prices .pb {
+          padding-bottom: 0.75rem;
+        }
+      }
+    }  
+  }
+  
+}
+
+// Locations - Food Truck
+#locations {
+
+  .grid {
+    display: grid;
+    margin: 0 3rem;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 10vh);
+    // For the rest of the locations
+    // grid-template-rows: repeat(30, 10vh);
+    grid-gap: 1rem;
+
+    .address {
+      padding-bottom: 0.7rem;
+    }
+
+    .schedule {
+      display: flex;
+      justify-content: space-between;
+
+      ul {
+        list-style: none;
+      }
+    }
+
+    .site-1 {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 3;
+    }
+
+    .site-2 {
+      grid-column-start: 1;
+      grid-column-end: 3;
+      grid-row-start: 3;
+      grid-row-end: 5;
+    }
+  }
+
+  .map {
+    width: 100vw;
+    height: 50vh;
+  }
+}
+
+// About
+#about {
+  
+  .about-content {
+
+    .about-img {
+      height: 20vh;
+      background: url('https://static.wixstatic.com/media/874cb2_425ccd8e11d444c9a75b491990cdf227~mv2.jpg/v1/fill/w_420,h_235,al_c,q_80,usm_0.66_1.00_0.01/874cb2_425ccd8e11d444c9a75b491990cdf227~mv2.webp') no-repeat center center/cover;
+    }
+
+    .about-text {
+      text-align: center;
+    }
+  }
+  
+}
+
+// Contact
+#contact {
+  margin: 0 2rem;
+
+  .contact-info .phone-number {
+    margin-bottom: 0.7rem;
+  }
+
+  .contact-form {
+    margin-right: 1rem;
+
+    form {
+      display: flex;
+      flex-direction: column;
+
+      input[type='text'],
+      input[type='email'],
+      textarea {
+        width: 100%;
+        color: color(primary);
+      }
+    }
+    
+    ::placeholder {
+      color: color(primary);
+      opacity: 1;
+    }
+  }
+}
+
+#main-footer {
+  margin-top: 2rem;
+  border-top: 2px solid color(accent);
+
+  .footer-nav nav ul {
+    display: flex;
+    justify-content: space-around;
+
+    li {
+      list-style: none;
+    }
+  }
+
+  hr {
+    margin: 0 2rem;
+  }
+
+  .footer-content {
+    padding: 0 2.5rem;
+  }
+}
