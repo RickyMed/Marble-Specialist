@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "name": "marble-specialist",
   "version": "0.1.0",
   "private": true,
@@ -12,6 +13,16 @@
     "react-scroll": "^1.7.11",
     "react-siema": "^1.0.1",
     "swiper": "^4.5.0"
+=======
+  "name": "la-bufadora",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "node-sass": "^4.12.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-scripts": "3.0.1"
+>>>>>>> 22528944898d7519061f4ea1ee4bd3b67d8cad45
   },
   "scripts": {
     "start": "react-scripts start",
