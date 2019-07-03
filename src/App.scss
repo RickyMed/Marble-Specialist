@@ -39,11 +39,19 @@
   display: block;
 }
 
-.p-1 { padding: 1.5rem; }
+.p-1 { padding: 1rem; }
 .p-2 { padding: 2rem; }
 .p-3 { padding: 3rem; }
 
-.py-1 { padding: 1.5rem 0; }
+.pt-1 { padding-top: 1rem; }
+.pt-2 { padding-top: 2rem; }
+.pt-3 { padding-top: 3rem; }
+
+.pb-1 { padding-bottom: 1rem; }
+.pb-2 { padding-bottom: 2rem; }
+.pb-3 { padding-bottom: 3rem; }
+
+.py-1 { padding: 1rem 0; }
 .py-2 { padding: 2rem 0; }
 .py-3 { padding: 3rem 0; }
 
@@ -62,94 +70,108 @@
   background: #fff;
 }
 
-// SmartPhones
-@media only screen and (max-width: 767px) {
-  #main-header {
+// Media Breakpoints
 
-    nav {
-      flex-direction: column;
-      align-items: center;
+$laptop: 1024px;
+$tablet: 768px;
+$mobile: 375px;
 
-      h1 {
-        margin-bottom: 0.75rem;
-      }
-
-      ul {       
-
-        li {
-          margin: 0.25rem;
-          // border-bottom: 1px solid #fff;
-        }
-      }
-    }
+@mixin laptop {
+  @media (max-width: #{$laptop}) {
+    @content;
   }
+}
 
-  #showcase {
-
-    .showcase-content {
-      display: flex;
-      justify-content: center;
-      margin: 0 1rem;
-      left: 0;
-      width: 100%;
-
-      h1 {
-        font-size: 2rem;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-    }
+@mixin tablet {
+  @media (max-width: #{$tablet}) {
+    @content;
   }
-
 }
 
-// Tablets
-@media only screen and (min-width: 768px) and (max-width: 1024px) {
-  
-
-}
-
-// Computers
-@media only screen and (min-width: 1025px) and (max-width: 1800px) {
-
-}
-// TV's
-@media only screen and (min-width: 1801px) {
-  
+@mixin mobile {
+  @media (max-width: #{$mobile}) {
+    @content;
+  }
 }
 
 // Main Header
 #main-header {
   background: #3F0D12;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  @include tablet {
+    display: flex;
+    justify-content: center;
+  }
+
 
   nav {
     display: flex;
     justify-content: space-between;
     margin: 0 1.75rem;
+
+    @include tablet {
+      flex-direction: column;
+    }
   }
 
   h1 {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.8rem;
     font-family: 'Cinzel', serif;
     letter-spacing: 0.2rem;
     font-weight: 100;
+  }
+
+  .logo {
+    color: #fff;
   }
 
   a {
     text-decoration: none;
     color: #fff;
   }
+  
+  #menuToggle {
+
+    @include mobile {
+      display: flex;
+      justify-content: center;
+    }
+  }
 
   ul {
     display: flex;
     list-style: none;
 
+    @include mobile {
+      width: 100%;
+      justify-content: center;
+      flex-direction: column;
+    }
+
     li {
 
+      @include mobile {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
       a {
-        padding: 0.75rem;
-        margin: 0 0.25rem;
+        padding: 0.5rem;
+
+        @include mobile {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          border-bottom: 1px solid #333;
+
+        }
       }
 
       a:hover {
@@ -167,6 +189,10 @@
   height: 100vh;
   color: #fff;
 
+  @include mobile {
+    margin-top: 5rem;
+  }
+
   .showcase-content {
     display: flex;
     flex-direction: column;
@@ -175,6 +201,20 @@
     text-align: center;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.3);
+
+    @include laptop {
+      padding: 0 5rem;
+    }
+
+    @include mobile {
+      h1 {
+        font-size: 3rem;
+      }
+
+      p {
+        font-size: 1.2rem;
+      }
+    }
 
     p {
       margin: 1 2rem;
@@ -192,6 +232,10 @@
     display: flex;
     justify-content: space-between;
     padding: 1rem;
+
+    @include mobile{
+      flex-direction: column;
+    }
   
     .item {
       flex: 1;
@@ -208,13 +252,29 @@
 // Gallery
 #gallery {
   background: #EDE1C9;
+  padding-bottom: 3rem;
 
   .grid {
     display: grid;
     margin: 0 5rem;
     grid-template-columns: repeat(8, 1fr);
-    grid-template-rows: repeat(8, 5vw);
+    grid-template-rows: repeat(7, 5vw);
     grid-gap: 1rem;
+
+    @include laptop {
+      margin: 0 3rem;
+    }
+
+    @include tablet {
+      margin: 0 2rem;
+      grid-template-columns: repeat(8, 1fr);
+      grid-template-rows: repeat(8, 5vw);
+    }
+
+    @include mobile {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(8, 20vw);
+    }
 
     figure .gallery-img {
       width: 100%;
@@ -227,6 +287,18 @@
       grid-column-end: 3;
       grid-row-start: 1;
       grid-row-end: 3;
+
+      @include tablet {
+        grid-column-end: 5;
+        grid-row-end: 5;
+      }
+
+      @include mobile {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 1;
+        grid-row-end: 3;
+      }
     }
 
     .gallery-item-6 {
@@ -234,6 +306,10 @@
       grid-column-end: 5;
       grid-row-start: 1;
       grid-row-end: 3;
+
+      @include tablet {
+        display: none;
+      }
     }
 
     .gallery-item-7 {
@@ -241,6 +317,10 @@
       grid-column-end: 3;
       grid-row-start: 3;
       grid-row-end: 5;
+
+      @include tablet {
+        display: none;
+      }
     }
 
     .gallery-item-4 {
@@ -248,6 +328,10 @@
       grid-column-end: 5;
       grid-row-start: 3;
       grid-row-end: 5;
+
+      @include tablet {
+        display: none;
+      }
     }
 
     .gallery-item-2 {
@@ -255,59 +339,72 @@
       grid-column-end: 5;
       grid-row-start: 5;
       grid-row-end: 8;
+
+      @include tablet {
+        grid-row-end: 9;
+      }
+
+      @include mobile {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 3;
+        grid-row-end: 5;
+      }
     }
     .gallery-item-3 {
       grid-column-start: 5;
       grid-column-end: 9;
       grid-row-start: 5;
       grid-row-end: 8;
+
+      @include tablet {
+        grid-row-end: 9;
+      }
+
+      @include mobile {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 5;
+        grid-row-end: 7;
+      }
     }
     .gallery-item-5 {
       grid-column-start: 5;
       grid-column-end: 9;
       grid-row-start: 1;
       grid-row-end: 5;
+
+      @include mobile {
+        grid-column-start: 1;
+        grid-column-end: 3;
+        grid-row-start: 7;
+        grid-row-end: 9;
+      }
     }
   }
 }
-
-// Testimonials - May not use
-// #testimonials {
-//   margin-top: 1.5rem;
-
-//   .items {
-//     margin: 0 5rem;
-
-//     .item {
-//       margin: 3rem 7rem;
-//       padding: 1.5rem;
-//       width: 55%;
-//       text-align: center;
-//       background: #EDE1C9;
-//       border: 1px solid #000;
-//       box-shadow: 10px 10px #93827F;
-
-//       p {
-//         padding: 0 10rem;
-//       }
-//     }
-
-//     .item:nth-child(2) {
-//       margin-left: 35rem;
-//     }
-//   }
-
-// }
 
 #testimonials {
 
   .items {
     display: grid;
-    margin: 0 5rem;
-    margin-bottom: 2.5rem;
+
+    margin: 0 2.5rem 2.5rem;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(4, 5vw);
     grid-gap: 1rem;
+
+    @include laptop {
+      display: grid;
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(3, 15vw);
+    }
+
+    @include tablet {
+      display: grid;
+      margin: 0 1rem 1.5rem;
+      grid-template-rows: repeat(2, 30vw);
+    }
 
     .item {
       display: flex;
@@ -315,7 +412,16 @@
       justify-content: center;
       align-items: center;
       background: #EDE1C9;
-      padding: 0 5rem;
+      padding: 0 3rem;
+
+      @include laptop {
+        padding: 0 2rem;
+      }
+
+      @include tablet {
+        padding: 0 1rem;
+      }
+
     }
 
     .item-3 {
@@ -323,6 +429,13 @@
       grid-column-end: 3;
       grid-row-start: 1;
       grid-row-end: 3;
+
+      @include laptop {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 1;
+        grid-row-end: 2;
+      }
     }
 
     .item-2 {
@@ -330,6 +443,13 @@
       grid-column-end: 3;
       grid-row-start: 3;
       grid-row-end: 5;
+
+      @include laptop {
+        grid-column-start: 1;
+        grid-column-end: 2;
+        grid-row-start: 2;
+        grid-row-end: 3;
+      }
     }
 
     .item-1 {
@@ -337,12 +457,20 @@
       grid-column-end: 5;
       grid-row-start: 1;
       grid-row-end: 5;
+
+      @include laptop {
+        display: none;
+      }
     }
   }
 }
 
 #contact-us {
   display: flex;
+
+  @include tablet {
+    flex-direction: column;
+  }
 
   .map,
   .contact-form {
