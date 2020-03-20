@@ -6,7 +6,7 @@ const Gallery = () => {
       <h2 className="m-heading is-center py-1">Gallery</h2>
       <div className="grid">
         <figure className="gallery-item gallery-item-1">
-          <img src="https://images.pexels.com/photos/1020320/pexels-photo-1020320.jpeg?cs=srgb&dl=background-canvas-close-up-1020320.jpg&fm=jpg" alt="Stone-1" className="gallery-img"/>
+          <img src="https://images.pexels.com/photos/8892/pexels-photo.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Stone-1" className="gallery-img"/>
         </figure>
         <figure className="gallery-item gallery-item-2">
           <img src="https://images.pexels.com/photos/1884303/pexels-photo-1884303.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Stone-2" className="gallery-img"/>

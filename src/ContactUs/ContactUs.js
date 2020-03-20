@@ -150,15 +150,15 @@ class ContactUs extends Component {
       <section id="contact-us">
         <div className="contact-form p-3">
           <h2 className="is-center m-heading">Contact Us</h2>
-          <form>
-            <input className="form-item" type="text" placeholder="Name"/>
-            <input className="form-item" type="email" placeholder="Email"/>
+          <form action="https://formspree.io/meqzlydp" method="POST">
+            <input className="form-item" type="text" name="Name" placeholder="Name"/>
+            <input className="form-item" type="email" name="Email" placeholder="Email"/>
             <label className="form-item" htmlFor="subject">Subject</label>
-            <select className="form-item dropdown" name="subject" required>
+            <select className="form-item dropdown" name="Subject" required>
               <option value="request-quote">Request Quote</option>
               <option value="other">Other</option>
             </select>
-            <textarea className="form-item" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+            <textarea className="form-item" name="Message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
             <input type="submit" value="Send" className="btn"></input>
           </form>
         </div>
