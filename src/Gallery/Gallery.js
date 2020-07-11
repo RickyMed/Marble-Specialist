@@ -18,7 +18,7 @@ const Gallery = () => {
           <img src="https://images.pexels.com/photos/921776/pexels-photo-921776.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="Stone-4" className="gallery-img"/>
         </figure>
         <figure className="gallery-item gallery-item-5">
-          <img src="https://images.pexels.com/photos/1985166/pexels-photo-1985166.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Stone-5" className="gallery-img"/>
+          <img src="https://images.pexels.com/photos/2109758/pexels-photo-2109758.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="Stone-5" className="gallery-img"/>
           </figure>
         <figure className="gallery-item gallery-item-6">
           <img src="https://images.pexels.com/photos/1451474/pexels-photo-1451474.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Stone-6" className="gallery-img"/>
