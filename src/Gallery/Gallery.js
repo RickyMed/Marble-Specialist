@@ -24,7 +24,7 @@ const Gallery = () => {
           <img src="https://images.pexels.com/photos/1451474/pexels-photo-1451474.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="Stone-6" className="gallery-img"/>
         </figure>
         <figure className="gallery-item gallery-item-7">
-          <img src="https://images.pexels.com/photos/247719/pexels-photo-247719.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="Stone-7" className="gallery-img"/>
+          <img src="https://images.pexels.com/photos/6634138/pexels-photo-6634138.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Stone-7" className="gallery-img"/>
         </figure>
       </div>
     </section>
